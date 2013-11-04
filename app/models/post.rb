@@ -1,6 +1,3 @@
 class Post < ActiveRecord::Base
-  attr_accessible :text, :title
-
-  validates :title, presence: true,
-            length: { minimum: 5 }
+  attr_accessible :text, :title, :user_id
 end

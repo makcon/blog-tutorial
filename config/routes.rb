@@ -1,7 +1,10 @@
 Blog::Application.routes.draw do
+  resources :users
+  resources :posts
+
+
   get "welcome/index"
 
-  resources :posts
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
