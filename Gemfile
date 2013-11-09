@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
+  gem 'spork-rails', '4.0.0'
 end
 
 group :test do
@@ -27,6 +28,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'bootstrap-sass', '2.1'
 
 gem 'pg', '0.17.0'
 
