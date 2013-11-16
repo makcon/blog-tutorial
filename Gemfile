@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+gem 'bcrypt-ruby', '3.0.1'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
@@ -10,6 +11,10 @@ end
 group :test do
   gem 'selenium-webdriver', '2.35.1'
   gem 'capybara', '2.1.0'
+end
+
+group :development do
+  gem 'annotate', '2.5.0'
 end
 
 # Bundle edge Rails instead:

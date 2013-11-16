@@ -25,4 +25,19 @@ describe "Static pages" do
     it { should have_selector 'h1', text: 'About' }
     it { should have_title full_title('About Us') }
   end
+
+  it "should have the right links on the layout" do
+    visit root_path
+    click_link "About"
+    page.should have_title full_title('About Us')
+    click_link "Help"
+    page.should have_title full_title('Help')
+    click_link "Home"
+    page.should have_title full_title('')
+    click_link "Sign up now!"
+    page.should have_title full_title('Sign up')
+    click_link "sample app"
+    page.should have_title full_title('')
+  end
+
 end
