@@ -5,14 +5,19 @@ Blog::Application.routes.draw do
 
   get "users/new"
 
+  root :to => 'static_pages#home'
+
   #match '/home',    to: 'static_pages#home'
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
 
   match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   resources :users
   resources :posts
+  resources :sessions, only: [:new, :create, :destroy]
 
   get "welcome/index"
 
@@ -68,7 +73,6 @@ Blog::Application.routes.draw do
   # just remember to delete public/index.html.
 
   # root :to => 'welcome#index'
-  root :to => 'static_pages#home'
 
   # See how all your routes lay out with "rake routes"
 
