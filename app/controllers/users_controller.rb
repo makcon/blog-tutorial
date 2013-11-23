@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -77,18 +78,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
   end
-
-  def signed_in_user
-    #redirect_to signin_url, notice: "Please sign in." unless signed_in?
-
-    #equivalent
-    unless signed_in?
-      store_location
-      #flash[:notice] = "Please sign in."
-      redirect_to signin_url, notice: "Please sign in."
-    end
-  end
-
 
   def admin_user
     redirect_to(root_url) unless current_user.admin?

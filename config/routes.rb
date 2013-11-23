@@ -1,4 +1,5 @@
 Blog::Application.routes.draw do
+
   #get "static_pages/home"
   #get "static_pages/help"
   #get "static_pages/about"
@@ -16,8 +17,8 @@ Blog::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   resources :users
-  resources :posts
   resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
 
   get "welcome/index"
 
